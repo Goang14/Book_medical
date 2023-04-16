@@ -1,0 +1,25 @@
+<?php
+ use Illuminate\Support\Facades\URL;
+?>
+
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <a class="nav-link" href="{{ url('doctor/information_doctor', Auth::user()->id) }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Trang bác sĩ
+                </a>
+                <a class="nav-link" href="">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Lịch trực
+                </a>
+
+                <a class="nav-link" href="{{ url('admin/department') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Quản lí bệnh nhân
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
