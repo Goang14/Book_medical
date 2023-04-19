@@ -44,6 +44,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown03">
                             <li><a class="dropdown-item" href="{{ url('information') }}">Thông tin cá nhân</a></li>
+                            <li><a class="dropdown-item" href="{{ url('change-password') }}">Đổi Mật Khẩu</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

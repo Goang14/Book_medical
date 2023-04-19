@@ -38,7 +38,8 @@ class DoctorController extends Controller
 
     public function createDoctor(Request $request){
         $createDoctor = $this->doctorService->createDoctor($request);
-        return response()->json(['userDoctor' => $createDoctor]);
+        return Redirect::to('admin/doctor');
+        // return response()->json(['userDoctor' => $createDoctor]);
     }
 
     public function updateDoctor(Request $request){
@@ -52,6 +53,6 @@ class DoctorController extends Controller
 
     public function deleteUserAndDoctor($id){
         $deleteDoctor = $this->doctorService->deleteUserAndDoctor($id);
-        return response()->json(['deleteDoctor' => $deleteDoctor]);
+        return response()->json(['deleteDoctor' => $deleteDoctor,  'status' => 200, 'success' => true]);
     }
 }

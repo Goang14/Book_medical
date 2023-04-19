@@ -26,7 +26,7 @@
                     <input type="date" value="{{ $dataUser->birth_day }}"  class="form-control col-10" id="birth_day" name="name" required>
                 </div>
             </div>
-            <button class="btn btn-danger w-25 mt-5 mx-auto" onclick="updateInformation()">Cập nhật thông tin</button>
+            <button class="btn btn-success w-25 mt-5 mx-auto" onclick="updateInformation()">Cập nhật thông tin</button>
         </div>
     </div>
 @endsection

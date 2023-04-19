@@ -24,8 +24,9 @@ class BookApoinmentService{
                 'status' => $request->status,
             ]);
             return $createApoinment;
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
@@ -34,8 +35,9 @@ class BookApoinmentService{
             $dataID = DB::table('examination_schedule')->where('examination_schedule.id', $id)->first();
             DB::table('examination_schedule')->where('examination_schedule.id', $dataID->id)->delete();
             DB::commit();
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 

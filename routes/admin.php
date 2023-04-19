@@ -17,14 +17,25 @@ Route::group(['prefix'=>'/admin', 'middleware' => 'author.admin'], function () {
     Route::get('/department', [App\Http\Controllers\Admin\DepartmentController::class, 'index'])->name('admin.department');
     Route::get('/add_department', [App\Http\Controllers\Admin\DepartmentController::class, 'addDepartment'])->name('admin.add_department');
     Route::post('/add', [App\Http\Controllers\Admin\DepartmentController::class, 'add'])->name('admin.add');
+
     Route::get('/update_department/{id}', [App\Http\Controllers\Admin\DepartmentController::class, 'GetUpdateDepartment'])->name('admin.update_department');
     Route::post('/update_department', [App\Http\Controllers\Admin\DepartmentController::class, 'updateDepartment'])->name('admin.department');
+    Route::get('/getDepartment/{id}', [App\Http\Controllers\Admin\DepartmentController::class, 'getDataDepartment'])->name('admin.get_department');
+    Route::delete('/delete/{id}', [App\Http\Controllers\Admin\DepartmentController::class, 'deleteDepartment'])->name('admin.delete_department');
+
 
     Route::get('/doctor', [App\Http\Controllers\Admin\DoctorController::class, 'index'])->name('admin.doctor');
     Route::get('/create-doctor', [App\Http\Controllers\Admin\DoctorController::class, 'formCreateDoctor'])->name('admin.doctor_create');
     Route::post('/create-doctor', [App\Http\Controllers\Admin\DoctorController::class, 'createDoctor'])->name('admin.create_doctor');
-    Route::get('/getDepartment/{id}', [App\Http\Controllers\Admin\DepartmentController::class, 'getDataDepartment'])->name('admin.get_department');
     Route::delete('/delete/{id}', [App\Http\Controllers\Admin\DoctorController::class, 'deleteUserAndDoctor'])->name('admin.delete_doctor');
     Route::get('/update_doctor/{id}', [App\Http\Controllers\Admin\DoctorController::class, 'updateDoctor'])->name('admin.update_doctor');
+
+    Route::get('/room', [App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admin.room');
+    Route::get('/add_room', [App\Http\Controllers\Admin\RoomController::class, 'getAddRoom'])->name('admin.get_add_room');
+    Route::post('/add_room', [App\Http\Controllers\Admin\RoomController::class, 'addRoom'])->name('admin.add_room');
+
+    Route::get('/update_room/{id}', [App\Http\Controllers\Admin\RoomController::class, 'getUpdateRoom'])->name('admin.get_update_room');
+    Route::post('/update_room', [App\Http\Controllers\Admin\RoomController::class, 'updateRoom'])->name('admin.update_room');
+    Route::delete('/delete/{id}', [App\Http\Controllers\Admin\RoomController::class, 'deleteRoom'])->name('admin.delete_room');
 
 });

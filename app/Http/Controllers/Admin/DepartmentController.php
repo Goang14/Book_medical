@@ -26,7 +26,7 @@ class DepartmentController extends Controller
     }
 
     public function GetUpdateDepartment($id){
-        $department = Department::where('id', $id)->first();
+        $department = $this->departmentService->getListDataDepartment($id);
         return view('admin.department.addDepartment', compact('department'));
     }
 
@@ -54,5 +54,10 @@ class DepartmentController extends Controller
     public function getDataDepartment($id){
         $getDataDepartment = $this->departmentService->getDataDepartment($id);
         return response()->json($getDataDepartment);
+    }
+
+    public function deleteDepartment($id){
+        $deleteDepartment = $this->departmentService->deleteDepartment($id);
+        return response()->json(['deleteDepartment' => $deleteDepartment, 'status' => 200, 'success' => true]);
     }
 }

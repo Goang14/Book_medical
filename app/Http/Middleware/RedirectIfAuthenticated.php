@@ -26,6 +26,8 @@ class RedirectIfAuthenticated
                     return redirect(RouteServiceProvider::ADMIN_HOME);
                 } else if (Auth::user()->role === UserRole::USER) {
                     return redirect(RouteServiceProvider::HOME);
+                }else if (Auth::user()->role === UserRole::DOCTOR) {
+                    return redirect(RouteServiceProvider::DOCTOR);
                 }
             }
         }

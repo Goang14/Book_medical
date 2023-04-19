@@ -22,8 +22,19 @@ class DepartmentService{
                 'image' => $department,
             ]);
            return $data;
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
+    }
+
+    public function getListDataDepartment($id){
+        try {
+            $department = Department::where('id', $id)->first();
+            return $department;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
@@ -31,8 +42,20 @@ class DepartmentService{
         try {
             $dataRoom = Room::join('department', 'room.department_id', 'department.id')->where('department.id', $id)->get();
             return $dataRoom;
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
+    }
+
+    public function deleteDepartment($id){
+        DB::beginTransaction();
+        try {
+            DB::table('department')->where('id', $id)->delete();
+            DB::commit();
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 }

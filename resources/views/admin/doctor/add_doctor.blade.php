@@ -169,7 +169,7 @@
             </div>
         @endif
             <div class="mt-5">
-                <button type="button" class="btn btn-primary d-flex" {{ (isset($dataDoctor) && !empty($dataDoctor)) ? 'onclick=editDoctor()' : 'onclick=addDoctor()'}} >
+                <button type="button" class="btn btn-success d-flex" {{ (isset($dataDoctor) && !empty($dataDoctor)) ? 'onclick=editDoctor()' : 'onclick=addDoctor()'}} >
                     {{ (isset($dataDoctor) && !empty($dataDoctor)) ? 'Edit' : 'Thêm'}}
                 </button>
             </div>

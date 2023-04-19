@@ -13,7 +13,7 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-hover">
+          <table id="myTable" class="table table-hover">
             <thead>
               <tr>
                 <th scope="col"></th>
@@ -24,21 +24,46 @@
                 <th scope="col"></th>
               </tr>
             </thead>
-            @foreach ($department as $key => $value )
                 <tbody>
-                    <tr>
-                        <th scope="row">{{ ++$key }}</th>
-                        <td>{{ $value->department_name }}</td>
-                        <td>{{ $value->description }}</td>
-                        <td><img src="{{ asset('storage/department/' . $value->image) }}" alt="" class="img-fluid" width="100px" height="100px"></td>
-                        <td><a href="{{ url('admin/update_department/' .$value->id) }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                        <td><a href=""> <i class="fa-sharp fa-solid fa-trash"></i></a></td>
-                    </tr>
+                    @foreach ($department as $key => $value )
+                        <tr>
+                            <th scope="row">{{ ++$key }}</th>
+                            <td>{{ $value->department_name }}</td>
+                            <td>{{ $value->description }}</td>
+                            <td><img src="{{ asset('storage/department/' . $value->image) }}" alt="" class="img-fluid" width="100px" height="100px"></td>
+                            <td><a href="{{ url('admin/update_department/' .$value->id) }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                            <td><a href="" class="delete-department" data-id="{{ $value->id }}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
-            @endforeach
           </table>
         </div>
       </div>
     </div>
   </section>
 @endsection
+
+<script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
+<script>
+ $(document).ready(function() {
+        $('.delete-department').click(function() {
+            var departmentID = $(this).data('id');
+            if (confirm('Bạn có muốn chắc chắn xóa không?')) {
+                $.ajax({
+                    url: `delete/${departmentID}`,
+                    type: 'DELETE',
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert('deleted successfully');
+                        } else {
+                            alert('Error deleting room');
+                        }
+                    },
+                });
+            }
+        });
+    });
+</script>

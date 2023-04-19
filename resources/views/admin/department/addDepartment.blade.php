@@ -2,7 +2,7 @@
 
 @section('content-admin')
     <section>
-        <h2 class="text-center">Thêm thông tin khoa</h2>
+        <h2 class="text-center">{{ (isset($department) && !empty($department)) ? 'Sửa thông tin khoa' :'Thêm thông tin khoa' }}</h2>
         <form class="container w-75 mt-4" method="POST" enctype="multipart/form-data">
             <input type="hidden" id="id_department" data-id="{{ $department->id ?? '' }}">
             @csrf
@@ -34,7 +34,7 @@
                 </div>
             @endif
             <div class="mt-5">
-                <button type="button" class="btn btn-primary d-flex" {{ (isset($department) && !empty($department)) ? 'onclick=updateDepartment()' : 'onclick=addDepartment()'}} >
+                <button type="button" class="btn btn-success d-flex" {{ (isset($department) && !empty($department)) ? 'onclick=updateDepartment()' : 'onclick=addDepartment()'}} >
                     {{ (isset($department) && !empty($department)) ? 'EditDepartment' : 'Thêm'}}
                 </button>
             </div>

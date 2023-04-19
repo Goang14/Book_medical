@@ -33,8 +33,9 @@ class DoctorService{
                 'image' => $avatar,
             ]);
             DB::commit();
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
@@ -43,8 +44,9 @@ class DoctorService{
             $dataDegree = DB::table('degree')->get();
             $dataDepartment = DB::table('department')->get();
             return [$dataDegree, $dataDepartment];
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
@@ -58,8 +60,9 @@ class DoctorService{
              'users.birth_day', 'department.department_name','room.name_room','degree.name as name_degree')
             ->get();
             return $dataDoctor;
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
@@ -73,8 +76,9 @@ class DoctorService{
              'users.birth_day', 'department.department_name','room.name_room','degree.name as name_degree')
             ->where('user_id', $id)->first();
             return $dataPageDoctor;
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
@@ -88,8 +92,9 @@ class DoctorService{
             ->select('users.name as name_doctor', 'users.id as user_id', 'users.address', 'users.phone','users.email', 'users.birth_day', 'department.department_name', 'department.id as id_department', 'room.name_room','degree.name as name_degree', 'degree.id as id_degree')
             ->first();
             return $dataDoctor;
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
         }
     }
 
