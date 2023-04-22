@@ -18,7 +18,7 @@ class AuthorDoctor
     public function handle($request, Closure $next)
     {
 
-        if (Auth::user() && (Auth::user()->role == UserRole::USER || Auth::user()->role == UserRole::ADMIN || Auth::user()->role !== UserRole::DOCTOR)) {
+        if (Auth::user() && (Auth::user()->role == UserRole::USER || Auth::user()->role == UserRole::ADMIN || Auth::user()->role == UserRole::DOCTOR)) {
             return $next($request);
         }
         return redirect()->route('login');

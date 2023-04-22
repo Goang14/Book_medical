@@ -29,6 +29,6 @@ class BookingScheduleController extends Controller
     public function delete($id)
     {
         $this->bookApointmentService->deleteApoinment($id);
-        return response()->json(['success' => 'delete successfully.']);
+        return response()->json(['success' => 'delete successfully.', 'status' => 200]);
     }
 }

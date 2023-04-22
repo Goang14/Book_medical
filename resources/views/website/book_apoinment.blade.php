@@ -47,7 +47,7 @@
                                 <select class="form-control" id="doctor">
                                     <option>------Chọn bác sĩ------</option>
                                     @foreach ($dataDoctor as $key => $value )
-                                        <option value="{{ $key }}">{{ $value->name }}</option>
+                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -70,14 +70,21 @@
 
                          <label for="phone">Giới tính:</label>
                         <div class="row mt-3">
-                            <div class="form-check col-4 ps-5">
-                                <input class="form-check-input" value="{{ 1 }}" type="radio" name="gender" id="male" value="male" checked>
+                            <div class="form-group">
+                                <select class="form-control" id="gender">
+                                    <option>------Chọn giới tính------</option>
+                                    <option value="0">Nam</option>
+                                    <option value="1">Nữ</option>
+                                </select>
+                            </div>
+                            {{-- <div class="form-check col-4 ps-5">
+                                <input class="form-check-input" value="1" type="radio" name="gender" id="male" value="male" checked>
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <div class="form-check col-4">
-                                <input class="form-check-input" value="{{ 0 }}" type="radio" name="gender" id="female" value="female">
+                                <input class="form-check-input" value="0" type="radio" name="gender" id="female" value="female">
                                 <label class="form-check-label" for="female">Female</label>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="form-group mt-4">
@@ -113,13 +120,20 @@
 <script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
 
 <script>
+
+    let config = {
+            routes: {
+                home: "{{ asset("")}}",
+            }
+    };
     function addBookApoinment(){
+        console.log( $('#gender').val());
         let department = $('#department').val();
         let doctor = $('#doctor').val();
         let name = $('#name').val();
         let email = $('#email').val();
         let phone = $('#phone').val();
-        // let gender = $('input[name=gender]:checked');
+        let gender = $('#gender').val();
         let address = $('#address').val();
         let appointment_date = $('#date').val();
         let appointment_time = $('#time').val();
@@ -135,7 +149,7 @@
                 name: name,
                 email: email,
                 phone: phone,
-                // gender: gender,
+                gender: gender,
                 address: address,
                 appointment_date: appointment_date,
                 appointment_time: appointment_time,
@@ -145,8 +159,15 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-        }).done(function(data){
-            alert('Ban da them thanh cong');
+            success: function(data) {
+                if (data.status == 200) {
+                    alert("Bạn đã thêm thành công.");
+                    window.location.href  = config.routes.home;
+                }
+            },
+            error: function(errors) {
+                alert("Error")
+            }
         })
     }
 

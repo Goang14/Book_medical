@@ -13,7 +13,7 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-hover text-nowrap">
+          <table id="myTable" class="table table-hover text-nowrap">
             <thead>
               <tr>
                 <th scope="col">STT</th>
@@ -24,26 +24,26 @@
                 <th scope="col">Số điện thoại</th>
                 <th scope="col">Tên Khoa</th>
                 <th scope="col">Phòng làm việc</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
-            @foreach ($dataDoctor as $key => $value)
                 <tbody>
-                    <tr>
-                        <th scope="row">{{ ++$key }}</th>
-                        <td>{{ $value->name_doctor }}</td>
-                        <td>{{ $value->name_degree }}</td>
-                        <td>{{ $value->birth_day }}</td>
-                        <td>{{ $value->address }}</td>
-                        <td>{{ $value->phone }}</td>
-                        <td>{{ $value->department_name }}</td>
-                        <td>{{ $value->name_room }}</td>
-                        <td><a href="{{ url('admin/update_doctor/'. $value->id_doctor) }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                        <td><a href="" class="delete-user" data-id="{{ $value->user_id }}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
-                    </tr>
+                    @foreach ($dataDoctor as $key => $value)
+                        <tr>
+                            <td scope="row">{{ ++$key }}</td>
+                            <td>{{ $value->name_doctor }}</td>
+                            <td>{{ $value->name_degree }}</td>
+                            <td>{{ $value->birth_day }}</td>
+                            <td>{{ $value->address }}</td>
+                            <td>{{ $value->phone }}</td>
+                            <td>{{ $value->department_name }}</td>
+                            <td>{{ $value->name_room }}</td>
+                            <td><a href="{{ url('admin/update_doctor/'. $value->id_doctor) }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                            <td><a href="" class="delete-user" data-id="{{ $value->user_id }}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
-            @endforeach
           </table>
         </div>
       </div>
@@ -64,9 +64,6 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            // Xóa hàng trong bảng
-                            $('#user-' + userId).remove();
-                            // Hiển thị thông báo thành công
                             alert('User deleted successfully');
                         } else {
                             alert('Error deleting user');

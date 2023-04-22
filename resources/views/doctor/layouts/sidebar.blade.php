@@ -7,16 +7,16 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <a class="nav-link" href="{{ url('doctor/information_doctor', Auth::user()->id) }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     Trang bác sĩ
                 </a>
                 <a class="nav-link" href="">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>
                     Lịch trực
                 </a>
 
                 <a class="nav-link" href="{{ url('admin/department') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
                     Quản lí bệnh nhân
                 </a>
             </div>

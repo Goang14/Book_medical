@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Services\UserService;
-
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -32,4 +32,30 @@ class UsersController extends Controller
         $path = $this->userService->checkAuthenticated();
         return redirect($path);
     }
+    public function showChangePasswordForm()
+    {
+        return view('website.change-password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+        $currentPassword = $user->password;
+
+        if (Hash::check($request->input('current_password'), $currentPassword)) {
+            $user->fill([
+                'password' => Hash::make($request->input('new_password')),
+            ])->save();
+
+            return redirect()->route('home')->with('success', 'Password changed successfully!');
+        } else {
+            return redirect()->back()->withErrors(['current_password' => 'Wrong password.']);
+        }
+    }
+
 }

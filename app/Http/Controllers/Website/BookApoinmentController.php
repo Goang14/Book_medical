@@ -32,6 +32,6 @@ class BookApoinmentController extends Controller
 
     public function addBookApointment(Request $request){
         $addBookApointment = $this->bookApointmentService->createApoinment($request);
-        return response()->json(['addBookApointment' => $addBookApointment]);
+        return response()->json(['addBookApointment' => $addBookApointment, 'status' => 200]);
     }
 }

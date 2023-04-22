@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 require_once('admin.php');
 require_once('doctor.php');
@@ -35,6 +31,8 @@ Route::group(['middleware' => 'author.user'], function() {
     Route::post('/update_information', [App\Http\Controllers\UsersController::class, 'updateInformation'])->name('update_information');
     Route::post('/addBookApointment', [App\Http\Controllers\Website\BookApoinmentController::class, 'addBookApointment'])->name('addBookApointment');
     Route::post('/delete/{id}', [App\Http\Controllers\Website\BookingScheduleController::class, 'delete'])->name('delete');
+    Route::get('/change-password', [App\Http\Controllers\UsersController::class, 'showChangePasswordForm'])->name('user.change-password');
+    Route::post('/change-password', [App\Http\Controllers\UsersController::class,'changePassword'])->name('user.change-password');
 });
 
 

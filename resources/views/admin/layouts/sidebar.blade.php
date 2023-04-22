@@ -6,13 +6,13 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Tổng quan
                 </a>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ url('admin/account') }}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                     Quản lí tài khoản
                 </a>
 
                 <a class="nav-link" href="{{ url('admin/department') }}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-apartment"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-regular fa-building-user"></i></div>
                     Quản lí khoa
                 </a>
 
@@ -21,18 +21,18 @@
                     Quản lí bác sĩ
                 </a>
 
-                <a class="nav-link" href="{{ url('admin/doctor') }}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users-medical"></i></div>
+                <a class="nav-link" href="{{ url('admin/patient') }}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
                     Quản lí bệnh nhân
                 </a>
 
-                <a class="nav-link" href="{{ url('admin/doctor') }}">
-                    <div class="sb-nav-link-icon"><i class="fa-thin fa-person-booth"></i></div>
+                <a class="nav-link" href="{{ url('admin/room') }}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-hospital"></i></div>
                     Quản lí phòng
                 </a>
 
-                <a class="nav-link" href="{{ url('admin/doctor') }}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                <a class="nav-link" href="{{ url('admin/on_call_schedule') }}">
+                    <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>
                     Quản lí lịch trực bệnh nhân
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

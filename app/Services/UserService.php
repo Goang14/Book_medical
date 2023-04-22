@@ -3,6 +3,8 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use App\Enums\UserRole;
 
 
 
@@ -38,7 +40,10 @@ class UserService
             if($user->role == UserRole::USER){
                 return RouteServiceProvider::HOME;
             }
-            return '/user/register';
+            if($user->role == UserRole::DOCTOR){
+                return RouteServiceProvider::DOCTOR;
+            }
+            return '/register';
         } catch (Exception $e) {
             Log::error($e);
             throw $e;
