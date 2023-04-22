@@ -32,7 +32,10 @@ class DepartmentController extends Controller
 
     public function updateDepartment(Request $request){
         $update = $this->departmentService->updateDepartment($request);
-        return response()->json(['update' => $update]);
+        return response()->json([
+            'update' => $update,
+            'status' => 200,
+        ]);
     }
 
     public function add(Request $request){

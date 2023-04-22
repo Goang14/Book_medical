@@ -19,8 +19,9 @@
 			    <li class="nav-item"><a class="nav-link" href="{{ url('book_appoinment') }}">Đặt lịch</a></li>
 			    {{-- <li class="nav-item"><a class="nav-link" href="{{ url('services') }}">Dịch vụ</a></li> --}}
                 <li class="nav-item"><a class="nav-link" href="{{ url('departments') }}">Khoa</a></li>
-			  	<li class="nav-item"><a class="nav-link" href="{{ url('doctor') }}">Bác sĩ</a></li>
-			    <li class="nav-item"><a class="nav-link" href="{{ url('booking_schedule') }}">Lịch đặt</a></li>
+			  	{{-- <li class="nav-item"><a class="nav-link" href="{{ url('doctor') }}">Bác sĩ</a></li> --}}
+                  {{-- <li class="nav-item"><a class="nav-link" href="{{ url('booking_schedule') }}">Lịch đặt</a></li> --}}
+
 			    <li class="nav-item"><a class="nav-link" href="{{ url('contact') }}">Liên Hệ</a></li>
 
                 @guest
@@ -44,6 +45,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown03">
                             <li><a class="dropdown-item" href="{{ url('information') }}">Thông tin cá nhân</a></li>
+                            <li><a class="dropdown-item" href="{{ url('booking_schedule') }}">Lịch đặt</a></li>
                             <li><a class="dropdown-item" href="{{ url('change-password') }}">Đổi Mật Khẩu</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

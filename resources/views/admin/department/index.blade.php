@@ -27,7 +27,7 @@
                 <tbody>
                     @foreach ($department as $key => $value )
                         <tr>
-                            <th scope="row">{{ ++$key }}</th>
+                            <td scope="row">{{ ++$key }}</td>
                             <td>{{ $value->department_name }}</td>
                             <td>{{ $value->description }}</td>
                             <td><img src="{{ asset('storage/department/' . $value->image) }}" alt="" class="img-fluid" width="100px" height="100px"></td>
@@ -42,7 +42,9 @@
     </div>
   </section>
 @endsection
+<style>
 
+</style>
 <script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
 <script>
  $(document).ready(function() {

@@ -109,7 +109,7 @@
             },
             success: function(data) {
                 if (data.status == 200) {
-                    alert("success");
+                    alert("Bạn đã update thành công.");
                     window.location.href  = config.routes.home;
                 }
             },

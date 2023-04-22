@@ -38,8 +38,10 @@ class DoctorController extends Controller
 
     public function createDoctor(Request $request){
         $createDoctor = $this->doctorService->createDoctor($request);
-        return Redirect::to('admin/doctor');
-        // return response()->json(['userDoctor' => $createDoctor]);
+        return response()->json([
+            'userDoctor' => $createDoctor,
+            'status' => 200,
+        ]);
     }
 
     public function updateDoctor(Request $request){

@@ -236,8 +236,12 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-        }).done(function(){
-
+            success: function(data) {
+                if (data.status == 200) {
+                    alert("Bạn đã thêm thành công");
+                    window.location.href  = "doctor";
+                }
+            },
         })
     }
 

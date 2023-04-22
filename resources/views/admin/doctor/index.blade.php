@@ -31,7 +31,7 @@
                 <tbody>
                     @foreach ($dataDoctor as $key => $value)
                         <tr>
-                            <th scope="row">{{ ++$key }}</th>
+                            <td scope="row">{{ ++$key }}</td>
                             <td>{{ $value->name_doctor }}</td>
                             <td>{{ $value->name_degree }}</td>
                             <td>{{ $value->birth_day }}</td>

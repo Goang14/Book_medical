@@ -52,7 +52,8 @@
             },
             success: function(data) {
                 if (data.status == 200) {
-                    $.notify("Xóa cửa hàng thành công", "success");
+                    alert("Bạn có muốn hủy nó không?");
+                    window.location.href  = 'booking_schedule';
                 }
             },
         })

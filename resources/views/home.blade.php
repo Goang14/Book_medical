@@ -10,7 +10,7 @@
 					<span class="text-uppercase text-sm letter-spacing ">GIẢI PHÁP CHĂM SÓC SỨC KHỎE TỔNG THỂ</span>
 					<h1 class="mb-3 mt-3">Đối tác sức khỏe đáng tin cậy nhất của bạn</h1>
 
-					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
+					{{-- <p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p> --}}
 					<div class="btn-container ">
 						<a href="{{ url('book_appoinment') }}" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
 					</div>

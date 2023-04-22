@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['prefix'=>'/admin', 'middleware' => 'author.admin'], function () {
+
+    Route::get('/account', [App\Http\Controllers\Admin\ManagerAccount::class, 'index'])->name('admin.account');
+
     Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
     Route::get('/department', [App\Http\Controllers\Admin\DepartmentController::class, 'index'])->name('admin.department');
     Route::get('/add_department', [App\Http\Controllers\Admin\DepartmentController::class, 'addDepartment'])->name('admin.add_department');
@@ -37,5 +40,12 @@ Route::group(['prefix'=>'/admin', 'middleware' => 'author.admin'], function () {
     Route::get('/update_room/{id}', [App\Http\Controllers\Admin\RoomController::class, 'getUpdateRoom'])->name('admin.get_update_room');
     Route::post('/update_room', [App\Http\Controllers\Admin\RoomController::class, 'updateRoom'])->name('admin.update_room');
     Route::delete('/delete/{id}', [App\Http\Controllers\Admin\RoomController::class, 'deleteRoom'])->name('admin.delete_room');
+
+    Route::get('/patient', [App\Http\Controllers\Admin\PatientController::class, 'index'])->name('admin.patient');
+
+    Route::get('/on_call_schedule', [App\Http\Controllers\Admin\OncallSchedule::class, 'index'])->name('admin.on_call_schedule');
+    Route::get('/add_on_call_schedule', [App\Http\Controllers\Admin\OncallSchedule::class, 'getAddOncallSchedule'])->name('admin.add_on_call_schedule');
+    Route::post('/create-oncall-schedule', [App\Http\Controllers\Admin\OncallSchedule::class, 'addOncallSchedule'])->name('admin.create-oncall-schedule');
+    Route::post('/getDataDepartmentDoctor/{id}', [App\Http\Controllers\Admin\OncallSchedule::class, 'getDataDepartmentDoctor'])->name('admin.getDataDepartment');
 
 });

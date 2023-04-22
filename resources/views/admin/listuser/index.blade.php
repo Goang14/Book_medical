@@ -2,41 +2,41 @@
 
 @section('content-admin')
 <section class="mb-4">
-    <div class="card">
       <div class="card-header text-center py-3">
         <h5 class="mb-0 text-center">
           <strong>Quản Lí Tài Khoản</strong>
         </h5>
-        <div class="w-25">
-            <button type="button" class="btn btn-primary d-flex"><a class="text-dark text-decoration-none" href="{{ url('admin/add_department') }}">Thêm Bác Sĩ</a></button>
-        </div>
       </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-hover">
+      <div class="table-responsive mt-5">
+        <table id="myTable" class="table table-striped b-t b-light" class="table table-striped table-bordered">
             <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">Tên Bác Sĩ</th>
-                <th scope="col">Ngày sinh</th>
-                <th scope="col">Số điện thoại</th>
-                <th scope="col">Email</th>
-                <th scope="col">Khoa</th>
-                <th scope="col">Địa chỉ</th>
-                <th scope="col">Avatar</th>
-                <th scope="col">Room</th>
-                <th scope="col">Trình độ</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Phân quyền</th>
+                    <th></th>
+                </tr>
             </thead>
                 <tbody>
-                    <tr>
-                    </tr>
+                    @foreach ($dataUser as $key => $value)
+                        <tr>
+                            <td>{{ ++$key }}</td>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->email }}</td>
+                            <td>{{ $value->phone }}</td>
+                            @if($value->role == 0)
+                                <td>Admin</td>
+                            @elseif($value->role == 1)
+                                <td>User</td>
+                            @elseif($value->role == 2)
+                                <td>Doctor</td>
+                            @endif
+                        </tr>
+                    @endforeach
                 </tbody>
-          </table>
-        </div>
-      </div>
+        </table>
     </div>
   </section>
 @endsection

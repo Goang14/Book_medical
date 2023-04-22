@@ -6,7 +6,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Tổng quan
                 </a>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ url('admin/account') }}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                     Quản lí tài khoản
                 </a>
@@ -21,7 +21,7 @@
                     Quản lí bác sĩ
                 </a>
 
-                <a class="nav-link" href="{{ url('admin/doctor') }}">
+                <a class="nav-link" href="{{ url('admin/patient') }}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
                     Quản lí bệnh nhân
                 </a>
@@ -31,7 +31,7 @@
                     Quản lí phòng
                 </a>
 
-                <a class="nav-link" href="{{ url('admin/doctor') }}">
+                <a class="nav-link" href="{{ url('admin/on_call_schedule') }}">
                     <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>
                     Quản lí lịch trực bệnh nhân
                 </a>

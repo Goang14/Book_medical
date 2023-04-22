@@ -13,7 +13,7 @@
                             <br>
                             <span>Bước 1 : Đặt lịch khám bệnh</span>
                             <h6> <i class="fas fa-circle-notch"></i>&nbsp;&nbsp; Đăng nhập vào phần mềm web. </h6>
-                            <h6> <i class="fas fa-circle-notch"></i>&nbsp;&nbsp; Chọn hình thức đặt khám : theo ngày hoặc theo bác sĩ. </h6>
+                            {{-- <h6> <i class="fas fa-circle-notch"></i>&nbsp;&nbsp; Chọn hình thức đặt khám : theo ngày hoặc theo bác sĩ. </h6> --}}
                             <h6> <i class="fas fa-circle-notch"></i>&nbsp;&nbsp; Chọn chuyên khoa và lịch khám. </h6>
                             <h6> <i class="fas fa-circle-notch"></i>&nbsp;&nbsp; Điền thông tin hồ sơ bệnh hoặc tạo mới </h6>
                         </div>
