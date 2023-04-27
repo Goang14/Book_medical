@@ -33,6 +33,11 @@
                             @elseif($value->role == 2)
                                 <td>Doctor</td>
                             @endif
+                            <td>
+                                <button class="btn btn-dark">
+                                    <a class="text-decoration-none text-white" href="{{ url('admin/block/'.$value->id) }}">{{ $value->status == 1 ? 'Chặn' : 'Bỏ Chặn' }}</a>
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

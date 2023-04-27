@@ -29,7 +29,11 @@
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $value->name }}</td>
                                 <td>{{ $value->onAll_day }}</td>
-                                <td>{{ $value->live_time }}</td>
+                                @if($value->session == 1)
+                                    <td>Sáng</td>
+                                @elseif($value->session == 0)
+                                    <td>Chiều</td>
+                                @endif
                                 <td><a href="{{ url('admin/update_department/' .$value->id) }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
                                 <td><a href="" class="delete-department" data-id="{{ $value->id }}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
                             </tr>

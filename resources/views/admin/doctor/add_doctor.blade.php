@@ -2,7 +2,6 @@
 
 @section('content-admin')
 <section>
-
     <h2 class="text-center">Thêm thông tin Bác sĩ</h2>
     <form class="container w-50 mt-4" method="POST" enctype="multipart/form-data">
         @if(isset($dataDoctor) && !empty($dataDoctor))
@@ -154,6 +153,15 @@
             </div>
 
             <div class="col mt-3">
+                <label for="formGroupExampleInput" class="form-label">Giới tính</label>
+                <select class="form-select" name="" id="sex">
+                    <option selected>-----Chọn giới tính-----</option>
+                    <option value="0">Nữ</option>
+                    <option value="1">Nam</option>
+                </select>
+            </div>
+
+            <div class="col mt-3">
                 <label for="formGroupExampleInput" class="form-label">Học vị</label>
                 <select class="form-select" name="" id="degree">
                     <option value="0">-----Chọn-----</option>
@@ -214,6 +222,7 @@
         let department = $('#department').val();
         let room = $('#room').val();
         let degree = $('#degree').val();
+        let sex = $('#sex').val();
         let images = $('#imgUpload')[0].files[0];
         let formData = new FormData();
         formData.append('name', name);
@@ -227,6 +236,7 @@
         formData.append('degree', degree);
         formData.append('role', 2);
         formData.append('avatar', images);
+        formData.append('sex', sex);
         $.ajax({
             type: 'POST',
             url: 'create-doctor',
@@ -255,6 +265,8 @@
         let department = $('#department').val();
         let room = $('#room').val();
         let degree = $('#degree').val();
+        let sex = $('#sex').val();
+        let images = $('#imgUpload')[0].files[0];
         let formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -266,6 +278,8 @@
         formData.append('room', room);
         formData.append('degree', degree);
         formData.append('role', 2);
+        formData.append('sex', sex);
+        formData.append('avatar', images);
 
         $.ajax({
             type: 'POST',

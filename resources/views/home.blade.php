@@ -12,7 +12,7 @@
 
 					{{-- <p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p> --}}
 					<div class="btn-container ">
-						<a href="{{ url('book_appoinment') }}" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
+						<a href="{{ url('book_appoinment') }}" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Đặt lịch <i class="icofont-simple-right ml-2  "></i></a>
 					</div>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 		</div>
 	</div>
 </section>
-<section class="section about">
+{{-- <section class="section about">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-4 col-sm-6">
@@ -84,8 +84,8 @@
 			</div>
 		</div>
 	</div>
-</section>
-<section class="cta-section ">
+</section> --}}
+{{-- <section class="cta-section ">
 	<div class="container">
 		<div class="cta position-relative">
 			<div class="row">
@@ -121,15 +121,15 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 <section class="section service gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
-					<h2>Award winning patient care</h2>
+					<h2>Giải thưởng chăm sóc bệnh nhân</h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p>Hãy biết nhiều hơn về nhu cầu của nỗi đau mà chúng ta có thể khắc nghiệt hơn để những niềm vui rơi vào những rắc rối của những người khen ngợi chúng ta. Hãy để anh ta tìm kiếm những điều lớn lao hơn.</p>
 				</div>
 			</div>
 		</div>
@@ -139,11 +139,11 @@
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
 						<i class="icofont-laboratory text-lg"></i>
-						<h4 class="mt-3 mb-3">Laboratory services</h4>
+						<h4 class="mt-3 mb-3">Dịch vụ xét nghiệm</h4>
 					</div>
 
 					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<p class="mb-4"></p>
 					</div>
 				</div>
 			</div>
@@ -152,10 +152,10 @@
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
 						<i class="icofont-heart-beat-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Heart Disease</h4>
+						<h4 class="mt-3 mb-3">Bệnh tim</h4>
 					</div>
 					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<p class="mb-4"></p>
 					</div>
 				</div>
 			</div>
@@ -164,10 +164,10 @@
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
 						<i class="icofont-tooth text-lg"></i>
-						<h4 class="mt-3 mb-3">Dental Care</h4>
+						<h4 class="mt-3 mb-3">Chăm sóc nha khoa</h4>
 					</div>
 					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<p class="mb-4"></p>
 					</div>
 				</div>
 			</div>
@@ -177,11 +177,11 @@
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
 						<i class="icofont-crutch text-lg"></i>
-						<h4 class="mt-3 mb-3">Body Surgery</h4>
+						<h4 class="mt-3 mb-3">Phẫu thuật cơ thể</h4>
 					</div>
 
 					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<p class="mb-4"></p>
 					</div>
 				</div>
 			</div>
@@ -190,10 +190,10 @@
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
 						<i class="icofont-brain-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Neurology Sargery</h4>
+						<h4 class="mt-3 mb-3">Thần kinh Sargery</h4>
 					</div>
 					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<p class="mb-4"></p>
 					</div>
 				</div>
 			</div>
@@ -202,10 +202,10 @@
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
 						<i class="icofont-dna-alt-1 text-lg"></i>
-						<h4 class="mt-3 mb-3">Gynecology</h4>
+						<h4 class="mt-3 mb-3">Phụ khoa</h4>
 					</div>
 					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<p class="mb-4"></p>
 					</div>
 				</div>
 			</div>
@@ -217,14 +217,14 @@
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<div class="appoinment-content">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
+					<img src="images/tham-lang.jpg" alt="" class="img-fluid">
 					<div class="emergency">
 						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+(84) 355679214</h2>
 					</div>
 				</div>
 			</div>
             <div class="col-lg-6">
-                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5 shadow-sm p-5 mb-5 bg-white rounded">
                     <h2 class="mb-2 title-color">Đặt lịch hẹn</h2>
                         <form id="#" class="appoinment-form" method="post" action="#">
                             <div class="row">

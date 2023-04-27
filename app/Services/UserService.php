@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Enums\UserRole;
 
-
-
 class UserService
 {
     public function getDataUser($id){
@@ -23,6 +21,7 @@ class UserService
                 'address' => $request->address,
                 'phone' => $request->phone,
                 'birth_day' => $request->birth_day,
+                'sex' => $request->sex,
             ]);
             return $updateInfo;
         } catch (\Throwable $th) {
@@ -37,9 +36,15 @@ class UserService
             if ($user->role == UserRole::ADMIN) {
                 return RouteServiceProvider::ADMIN_HOME;
             }
+
             if($user->role == UserRole::USER){
-                return RouteServiceProvider::HOME;
+                if($user->status == 0){
+                    abort(403, 'Tài Khoản Của Bạn Đã Bị Khóa Xin Mời Liên Hệ Lại ADMIN');
+                }else{
+                    return RouteServiceProvider::HOME;
+                }
             }
+
             if($user->role == UserRole::DOCTOR){
                 return RouteServiceProvider::DOCTOR;
             }

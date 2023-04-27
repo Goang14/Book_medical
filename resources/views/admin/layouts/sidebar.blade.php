@@ -33,7 +33,7 @@
 
                 <a class="nav-link" href="{{ url('admin/on_call_schedule') }}">
                     <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>
-                    Quản lí lịch trực bệnh nhân
+                    Quản lí lịch trực bác sĩ
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
