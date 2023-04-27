@@ -33,6 +33,13 @@ Route::group(['middleware' => 'author.user'], function() {
     Route::post('/delete/{id}', [App\Http\Controllers\Website\BookingScheduleController::class, 'delete'])->name('delete');
     Route::get('/change-password', [App\Http\Controllers\UsersController::class, 'showChangePasswordForm'])->name('user.change-password');
     Route::post('/change-password', [App\Http\Controllers\UsersController::class,'changePassword'])->name('user.change-password');
+
+    Route::get('/detai_department/{id}', [App\Http\Controllers\Website\DepartmentController::class, 'detailDepartment'])->name('detai_department');
+    Route::get('/onCall_Schedule/{id}', [App\Http\Controllers\Website\OncallScheduleController::class, 'getData'])->name('onCall_Schedule');
+    Route::get('/ngay-truc/{ngay}', [App\Http\Controllers\Website\OncallScheduleController::class, 'ngaytruc'])->name('ngay-truc');
+    Route::get('/select_time', [App\Http\Controllers\Website\OncallScheduleController::class, 'selectTime'])->name('select_time');
+
+
 });
 
 

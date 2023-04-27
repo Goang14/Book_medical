@@ -29,8 +29,8 @@
         </div>
 
         <div class="col-lg-8">
-            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
-                <h2 class="mb-2 title-color">Đặt lịch hẹn</h2>
+            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5 shadow-sm p-5 mb-5 bg-white rounded">
+                    <h2 class="mb-2 title-color">Đặt lịch hẹn</h2>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -47,7 +47,7 @@
                                 <select class="form-control" id="doctor">
                                     <option>------Chọn bác sĩ------</option>
                                     @foreach ($dataDoctor as $key => $value )
-                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                        <option value="{{ $value->name }}">{{ $value->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

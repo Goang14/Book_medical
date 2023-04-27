@@ -3,6 +3,7 @@
 @section('content')
 <section >
     <div class="container col-3">
+        <h2 class="text-center">Đổi mật khẩu</h2>
         <form method="POST" action="{{ route('user.change-password') }}">
             @csrf
             <div class="form-group">

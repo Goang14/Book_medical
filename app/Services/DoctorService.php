@@ -19,6 +19,7 @@ class DoctorService{
                 'address' => $request->address,
                 'phone' => $request->phone,
                 'role' => $request->role,
+                'sex' => $request->sex,
             ]);
 
             if($request->file('avatar')) {

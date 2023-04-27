@@ -28,17 +28,17 @@
         </div>
         <div class="row">
             @foreach ($dataDepartment as $value)
-            <div class="col-lg-4 col-md-6 ">
-            <div class="department-block mb-5">
-					<img  src="{{ asset('storage/department/' . $value->image) }}" alt="" style="height:285px" class="w-100">
-                    <div class="content">
-                        <h4 class="mt-4 mb-2 title-color">{{ $value->department_name }}</h4>
-                        <p class="mb-4">{{ $value->description }}</p>
-                        <button class="btn btn-danger">Xem thêm</button>
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-block mb-5">
+                        <img  src="{{ asset('storage/department/' . $value->image) }}" alt="" style="height:285px" class="w-100">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">{{ $value->department_name }}</h4>
+                            <p class="mb-4">{{ $value->description }}</p>
+                            <button class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ url('detai_department/' .$value->id) }}">Đặt lịch</a></button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
         </div>
     </div>
 </section>

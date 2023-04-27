@@ -15,7 +15,7 @@
                     Lịch trực
                 </a>
 
-                <a class="nav-link" href="{{ url('admin/department') }}">
+                <a class="nav-link" href="{{ url('doctor/manager_patient') }}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
                     Quản lí bệnh nhân
                 </a>

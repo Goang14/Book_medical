@@ -42,11 +42,14 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+
 
     <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
     <script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
     <script src="{{ asset('plugins/slick-carousel/slick/slick.js') }}"></script>
     <script src="{{ asset('plugins/slick-carousel/slick/slick.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!-- Bootstrap 4.3.2 -->
@@ -64,7 +67,6 @@
     <!-- Google Map -->
     <script src="{{ asset('plugins/google-map/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
-
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

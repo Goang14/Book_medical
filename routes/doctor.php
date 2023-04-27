@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix'=>'/doctor', 'middleware' => 'author.doctor'], function () {
     Route::get('/home', [App\Http\Controllers\Doctor\DoctorPageController::class, 'index'])->name('doctor.home');
     Route::get('/information_doctor/{id}', [App\Http\Controllers\Doctor\DoctorPageController::class, 'getDataPageDoctor'])->name('doctor.getdata');
+
+    Route::get('/manager_patient', [App\Http\Controllers\Doctor\PatientController::class, 'index'])->name('doctor.manager_patient');
+    Route::post('/update_patient', [App\Http\Controllers\Doctor\PatientController::class, 'updatePatient'])->name('doctor.update_patient');
+
+
 });

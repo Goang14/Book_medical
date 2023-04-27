@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix'=>'/admin', 'middleware' => 'author.admin'], function () {
 
     Route::get('/account', [App\Http\Controllers\Admin\ManagerAccount::class, 'index'])->name('admin.account');
+    Route::get('/block/{id}', [App\Http\Controllers\Admin\ManagerAccount::class, 'block'])->name('admin.block');
+    Route::get('/block_acc', [App\Http\Controllers\Auth\LoginController::class, 'block'])->name('admin.block_acc');
 
     Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
     Route::get('/department', [App\Http\Controllers\Admin\DepartmentController::class, 'index'])->name('admin.department');
@@ -43,9 +45,9 @@ Route::group(['prefix'=>'/admin', 'middleware' => 'author.admin'], function () {
 
     Route::get('/patient', [App\Http\Controllers\Admin\PatientController::class, 'index'])->name('admin.patient');
 
-    Route::get('/on_call_schedule', [App\Http\Controllers\Admin\OncallSchedule::class, 'index'])->name('admin.on_call_schedule');
-    Route::get('/add_on_call_schedule', [App\Http\Controllers\Admin\OncallSchedule::class, 'getAddOncallSchedule'])->name('admin.add_on_call_schedule');
-    Route::post('/create-oncall-schedule', [App\Http\Controllers\Admin\OncallSchedule::class, 'addOncallSchedule'])->name('admin.create-oncall-schedule');
-    Route::post('/getDataDepartmentDoctor/{id}', [App\Http\Controllers\Admin\OncallSchedule::class, 'getDataDepartmentDoctor'])->name('admin.getDataDepartment');
+    Route::get('/on_call_schedule', [App\Http\Controllers\Admin\OncallScheduleController::class, 'index'])->name('admin.on_call_schedule');
+    Route::get('/add_on_call_schedule', [App\Http\Controllers\Admin\OncallScheduleController::class, 'getAddOncallSchedule'])->name('admin.add_on_call_schedule');
+    Route::post('/create-oncall-schedule', [App\Http\Controllers\Admin\OncallScheduleController::class, 'addOncallSchedule'])->name('admin.create-oncall-schedule');
+    Route::get('/getDataDepartmentDoctor/{id}', [App\Http\Controllers\Admin\OncallScheduleController::class, 'getDataDepartmentDoctor'])->name('admin.getDataDepartment');
 
 });

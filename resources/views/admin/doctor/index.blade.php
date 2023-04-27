@@ -55,7 +55,7 @@
  $(document).ready(function() {
         $('.delete-user').click(function() {
             var userId = $(this).data('id');
-            if (confirm('Are you sure you want to delete this user and all related doctors?')) {
+            if (confirm('Bạn có muốn xóa doctor không?')) {
                 $.ajax({
                     url: `delete/${userId}`,
                     type: 'DELETE',
@@ -64,7 +64,7 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            alert('User deleted successfully');
+                            alert('Xóa thành công');
                         } else {
                             alert('Error deleting user');
                         }

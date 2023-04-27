@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('call_schedule', function (Blueprint $table) {
+        Schema::create('contact', function (Blueprint $table) {
             $table->id();
-            $table->string('session');
-            $table->date('onAll_day');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('department_id')->nullable();
+            $table->string('name');
+            $table->string('email');
+            $table->string('topic');
+            $table->string('phone');
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('call_schedule');
+        Schema::dropIfExists('contact');
     }
 };

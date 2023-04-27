@@ -54,9 +54,9 @@
                   </div>
               </div>
           </div>
-          <div class="row">
+          <div class="row shadow-sm p-5 mb-5 bg-white rounded">
               <div class="col-lg-12 col-md-12 col-sm-12">
-                  <form id="contact-form" class="contact__form " method="post" action="mail.php">
+                  <form id="contact-form" class="contact__form " method="post" action="">
                    <!-- form message -->
                       <div class="row">
                           <div class="col-12">
@@ -69,42 +69,37 @@
                       <div class="row">
                           <div class="col-lg-6">
                               <div class="form-group">
-                                  <input name="name" id="name" type="text" class="form-control" placeholder="Your Full Name" >
+                                  <input name="name" id="name" type="text" class="form-control" placeholder="Họ và tên" >
                               </div>
                           </div>
 
                           <div class="col-lg-6">
                               <div class="form-group">
-                                  <input name="email" id="email" type="email" class="form-control" placeholder="Your Email Address">
+                                  <input name="email" id="email" type="email" class="form-control" placeholder="Email">
                               </div>
                           </div>
                            <div class="col-lg-6">
                               <div class="form-group">
-                                  <input name="subject" id="subject" type="text" class="form-control" placeholder="Your Query Topic">
+                                  <input name="subject" id="subject" type="text" class="form-control" placeholder="Chủ đề">
                               </div>
                           </div>
                            <div class="col-lg-6">
                               <div class="form-group">
-                                  <input name="phone" id="phone" type="text" class="form-control" placeholder="Your Phone Number">
+                                  <input name="phone" id="phone" type="text" class="form-control" placeholder="Số điện thoại">
                               </div>
                           </div>
                       </div>
 
                       <div class="form-group-2 mb-4">
-                          <textarea name="message" id="message" class="form-control" rows="8" placeholder="Your Message"></textarea>
+                          <textarea name="message" id="message" class="form-control" rows="8" placeholder="Tin nhắn"></textarea>
                       </div>
 
                       <div class="text-center">
-                          <input class="btn btn-main btn-round-full" name="submit" type="submit" value="Send Messege"></input>
+                          <input class="btn btn-dark btn-round-full" name="submit" type="submit" value="Send Messege"/>
                       </div>
                   </form>
               </div>
           </div>
       </div>
   </section>
-
-
-   <div class="google-map ">
-      <div id="map"></div>
-  </div>
 @endsection

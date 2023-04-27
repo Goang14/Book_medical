@@ -7,10 +7,10 @@
         @csrf
             <div class="col">
                 <label for="formGroupExampleInput" class="form-label">Tên bác sĩ</label>
-                <select class="form-control" id="doctor">
+                <select class="form-control" id="doctor" onchange="test()">
                     <option>------Chọn bác sĩ------</option>
                     @foreach ($data as $key => $value )
-                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                        <option value="{{ $value->user_id }}">{{ $value->name }} -- {{$value->user_id }}</option>
                     @endforeach
                 </select>
             </div>
@@ -25,7 +25,7 @@
             </div>
             <div class="col">
                 <label for="formGroupExampleInput" class="form-label">Ngày trực</label>
-                <input type="date" id="on_call_day" class="form-control" aria-label="">
+                <input type="date" id="on_call_day" class="form-control" aria-label="" min="<?php $day = date('Y-m-d', strtotime(' + 1 days'));echo $day; ?>"/>
             </div>
             <div class="col-12">
                 <label for="formGroupExampleInput" class="form-label">Buổi trực</label>
@@ -49,6 +49,7 @@
 
     $( document ).ready(function() {
         test();
+    });
 
     function test() {
         let id = $('#doctor').val();
@@ -63,7 +64,7 @@
                 let html = '';
                 console.log(getListDepartmentDoctor);
                 getListDepartmentDoctor.forEach(function(value,index){
-                    html = `${html}<option value="${value.id}"  >${value.department_name}</option>`
+                    html = `${html}<option value="${value.department_id}">${value.department_name}</option>`
                 })
                 $('#department').html(html);
             }
@@ -74,12 +75,12 @@
     function addOncallSchedule(){
         let doctor = $('#doctor').val();
         let department = $('#department').val();
-        let on_call_schedule = $('#on_call_schedule').val();
+        let on_call_day = $('#on_call_day').val();
         let session = $('#session').val();
         let formData = new FormData();
         formData.append('doctor', doctor);
         formData.append('department', department);
-        formData.append('on_call_schedule', on_call_schedule);
+        formData.append('on_call_day', on_call_day);
         formData.append('session', session);
 
         $.ajax({
