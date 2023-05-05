@@ -10,7 +10,7 @@
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     Trang bác sĩ
                 </a>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ url('doctor/schedule_doctor') }}">
                     <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>
                     Lịch trực
                 </a>

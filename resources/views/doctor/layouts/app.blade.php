@@ -23,9 +23,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link href="{{ asset('css/table.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 </head>
 <body class="sb-nav-fixed">
     <!-- Header -->
+    <div id="loader"></div>
     @include('doctor.layouts.header')
     <div id="layoutSidenav">
         <!-- Sidebar -->
@@ -42,3 +49,22 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+    function loadPage(isLoad) {
+    var loader = document.getElementById("loader");
+    if (isLoad == false) {
+        loader.classList.remove("loader--hidden");
+    } else {
+        loader.classList.add("loader--hidden");
+    }
+    }
+
+    setTimeout(() => {
+        loader.classList.add("loader--hidden");
+    }, 1000);
+
+    $(document).ready(function() {
+		$('#myTable').DataTable();
+	});
+</script>

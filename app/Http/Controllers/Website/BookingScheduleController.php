@@ -22,7 +22,8 @@ class BookingScheduleController extends Controller
     }
 
     public function index(){
-        $data = ExaminationSchedule::where('user_id', Auth::user()->id)->get();
+        $data = ExaminationSchedule::join('department', 'department.id', 'examination_schedule.department_id')
+        ->where('user_id', Auth::user()->id)->get();
         return view('website.booking_schedule', compact('data'));
     }
 

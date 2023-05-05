@@ -57,8 +57,7 @@ class DoctorService{
             ->join('users', 'doctor.user_id', 'users.id')
             ->join('room','doctor.room_id','room.id')
             ->join('degree','doctor.degree_id','degree.id')
-            ->select('users.name as name_doctor','doctor.image', 'doctor.id as id_doctor', 'users.id as user_id', 'users.address', 'users.phone',
-             'users.birth_day', 'department.department_name','room.name_room','degree.name as name_degree')
+            ->select('users.name as name_doctor','doctor.image', 'doctor.id as id_doctor', 'users.id as user_id', 'users.address', 'users.phone','users.birth_day', 'department.department_name','room.name_room','degree.name as name_degree')
             ->get();
             return $dataDoctor;
         } catch (Exception $e) {

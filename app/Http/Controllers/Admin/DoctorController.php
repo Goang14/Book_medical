@@ -52,7 +52,6 @@ class DoctorController extends Controller
         return view('admin.doctor.add_doctor', compact('dataDegree', 'dataDepartment', 'dataDoctor'));
     }
 
-
     public function deleteUserAndDoctor($id){
         $deleteDoctor = $this->doctorService->deleteUserAndDoctor($id);
         return response()->json(['deleteDoctor' => $deleteDoctor,  'status' => 200, 'success' => true]);

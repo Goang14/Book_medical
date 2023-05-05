@@ -96,13 +96,13 @@
                         <div class="form-group mt-4">
                             <label for="address">Trạng thái</label>
                             <select class="form-select" name="" id="status">
-                                @if($value->status == 0)
+                                {{-- @if($data->status == 0) --}}
                                     <option value="0" selected>Chưa khám</option>
                                     <option value="1" >Đã khám</option>
-                                @else
+                                {{-- @else --}}
                                     <option value="0">Chưa khám</option>
                                     <option value="1" selected>Đã khám</option>
-                                @endif
+                                {{-- @endif --}}
                             </select>
                         </div>
                     </div>

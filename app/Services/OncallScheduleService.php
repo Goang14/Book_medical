@@ -38,51 +38,33 @@ class OncallScheduleService{
         }
     }
 
-    public function getDataOnCall($id){
+    public function getDataOnCall($id, $request){
         try {
-            $dataOnCall = OncallSchedule::join('users', 'users.id', 'call_schedule.user_id')
-            ->join('doctor', 'users.id', 'doctor.user_id')
-            ->join('room', 'room.id', 'doctor.room_id')
-            ->join('department', 'department.id', 'call_schedule.department_id')
-            ->join('degree', 'degree.id', 'doctor.degree_id')
-            ->select('degree.name as name_degree', 'users.*', 'department.department_name', 'room.*', 'doctor.*')
-            ->where('doctor.id', $id)
-            ->get();
+            $id_department = $request->input('value');
             $today = date('Y-m-j', time());
+            $dataOnCall = OncallSchedule::
+                join('users', 'users.id', '=', 'call_schedule.user_id')
+                ->join('doctor', 'users.id', '=', 'doctor.user_id')
+                ->join('room', 'room.id', '=', 'doctor.room_id')
+                ->join('department', 'department.id', '=', 'call_schedule.department_id')
+                ->join('degree', 'degree.id', '=', 'doctor.degree_id')
+                ->select('degree.name as name_degree', 'users.*', 'department.department_name', 'room.name_room')
+                ->where('users.id', $id)
+                ->first();
             $oncall = DB::table('call_schedule')
-            ->where('onAll_day','>=',$today)
-            // ->where('user_id', $id)
+            ->join('users', 'users.id', 'call_schedule.user_id')
+            ->join('doctor', 'users.id', 'doctor.user_id')
+            ->join('department', 'department.id', 'call_schedule.department_id')
+            ->where('users.id', $id)
+            ->where('onAll_day', '>', $today)
             ->get();
 
-            $c = DB::table('call_schedule')->where('onAll_day','>',$today)->count();
-            // dd($c);
+            $c = DB::table('call_schedule')->where('onAll_day','>',$today);
 
-            return [$dataOnCall, $oncall, $c];
+            return [$dataOnCall, $oncall ,$c];
         } catch (Exception $e) {
             Log::error($e);
             throw $e;
         }
     }
-
-
-    public function selectTime() {
-        $count1= DB::table('examination_schedule')->where('appointment_time',"07:00:00")->count();
-        $count2= DB::table('examination_schedule')->where('appointment_time',"08:00:00")->count();
-        $count3= DB::table('examination_schedule')->where('appointment_time',"09:00:00")->count();
-        $count4= DB::table('examination_schedule')->where('appointment_time',"10:00:00")->count();
-        $count5= DB::table('examination_schedule')->where('appointment_time',"13:30:00")->count();
-        $count6= DB::table('examination_schedule')->where('appointment_time',"14:30:00")->count();
-        $count7= DB::table('examination_schedule')->where('appointment_time',"15:30:00")->count();
-        $data["ca1"]=$count1;
-        $data["ca2"]=$count2;
-        $data["ca3"]=$count3;
-        $data["ca4"]=$count4;
-        $data["ca5"]=$count5;
-        $data["ca6"]=$count6;
-        $data["ca7"]=$count7;
-        $a[]=$data;
-        $jsonData = json_encode($a);
-        return response()->json($jsonData);
-    }
-
 }

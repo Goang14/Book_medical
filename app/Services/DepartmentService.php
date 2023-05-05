@@ -40,7 +40,9 @@ class DepartmentService{
 
     public function getDataDepartment($id){
         try {
-            $dataRoom = Room::join('department', 'room.department_id', 'department.id')->where('department.id', $id)->get();
+            $dataRoom = Room::join('department', 'room.department_id', 'department.id')
+            ->select('department.id', 'room.id as id_room','room.name_room','department.department_name')
+            ->where('department.id', $id)->get();
             return $dataRoom;
         } catch (Exception $e) {
             Log::error($e);
