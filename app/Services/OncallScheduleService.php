@@ -42,13 +42,11 @@ class OncallScheduleService{
         try {
             $id_department = $request->input('value');
             $today = date('Y-m-j', time());
-            $dataOnCall = OncallSchedule::
-                join('users', 'users.id', '=', 'call_schedule.user_id')
-                ->join('doctor', 'users.id', '=', 'doctor.user_id')
+            $dataOnCall = User::join('doctor', 'users.id', '=', 'doctor.user_id')
                 ->join('room', 'room.id', '=', 'doctor.room_id')
-                ->join('department', 'department.id', '=', 'call_schedule.department_id')
+                ->join('department', 'department.id', '=', 'doctor.department_id')
                 ->join('degree', 'degree.id', '=', 'doctor.degree_id')
-                ->select('degree.name as name_degree', 'users.*', 'department.department_name', 'room.name_room')
+                ->select('degree.name as name_degree', 'users.*', 'department.department_name', 'room.name_room', 'doctor.*')
                 ->where('users.id', $id)
                 ->first();
             $oncall = DB::table('call_schedule')

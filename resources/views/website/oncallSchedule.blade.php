@@ -40,10 +40,13 @@
         <div class="section-tittle text-center ">
             <h2>Ca trực</h2>
             @foreach($oncall as $key => $value)
-                {{-- <button class="btn btn-dark" id="onCallSchedule" onclick="onCallSchedule()" value="{{ $value->onAll_day }}">{{ $value->onAll_day }}</button> --}}
-                <button type="button" class="btn btn-dark" data-day="{{ $value->onAll_day}}" data-time="{{ $value->session}}" data-name = "{{ $value->name }}" data-department="{{ $value->department_name }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    {{ $value->onAll_day }}
-                </button>
+                @if(!empty($value))
+                    <button type="button" class="btn btn-dark" data-day="{{ $value->onAll_day }}" data-time="{{ $value->session }}" data-name="{{ $value->name }}" data-department="{{ $value->department_name }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        {{ $value->onAll_day }}
+                    </button>
+                @else
+                    <h1>Không có lịch trực</h1>
+                @endif
             @endforeach
         </div>
     </div>
