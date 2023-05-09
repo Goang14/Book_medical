@@ -205,7 +205,7 @@
                 let html = '';
                 console.log(getListDataRoom);
                 getListDataRoom.forEach(function(value,index){
-                    html = `${html}<option value="${value.id}"  >${value.name_room}</option>`
+                    html = `${html}<option value="${value.id_room}">${value.name_room}</option>`
                 })
                 $('#room').html(html);
             }

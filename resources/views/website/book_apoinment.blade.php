@@ -34,72 +34,70 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="department">
-                                    <option>------Chọn Khoa------</option>
-                                    @foreach ($dataDepartment as $key => $value )
-                                        <option value="{{ $value->id }}">{{ $value->department_name }}</option>
+                                <label for="name">Bác sĩ</label>
+                                <select class="form-control" id="doctor"  onchange="departmentDoctor()">
+                                    <option>------Chọn bác sĩ------</option>
+                                    @foreach ($dataDoctor as $key => $value )
+                                        <option value="{{ $value->user_id }}">{{ $value->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="doctor">
-                                    <option>------Chọn bác sĩ------</option>
-                                    @foreach ($dataDoctor as $key => $value )
-                                        <option value="{{ $value->name }}">{{ $value->name }}</option>
-                                    @endforeach
+                                <label for="name">Khoa</label>
+                                <select class="form-control" id="department">
+                                    <option>------Chọn Khoa------</option>
+                                    {{-- @foreach ($dataDepartment as $key => $value )
+                                        <option value="{{ $value->id }}">{{ $value->department_name }}</option>
+                                    @endforeach --}}
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="name">Họ tên:</label>
-                            <input type="text" value="{{ $dataUser->name }}" class="form-control" id="name" name="name" required>
+                            <input type="text" value="{{ $dataPatient->name }}" class="form-control" id="name" name="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" value="{{ $dataUser->email }}" class="form-control" id="email" name="email" required>
+                            <input type="email" value="{{ $dataPatient->email }}" class="form-control" id="email" name="email" required>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Số điện thoại:</label>
-                            <input type="tel" value="{{ $dataUser->phone }}" class="form-control" id="phone" name="phone" required>
-                        </div>
-
-                         <label for="phone">Giới tính:</label>
-                        <div class="row mt-3">
-                            <div class="form-group">
-                                <select class="form-control" id="gender">
-                                    <option>------Chọn giới tính------</option>
-                                    <option value="0">Nam</option>
-                                    <option value="1">Nữ</option>
-                                </select>
-                            </div>
-                            {{-- <div class="form-check col-4 ps-5">
-                                <input class="form-check-input" value="1" type="radio" name="gender" id="male" value="male" checked>
-                                <label class="form-check-label" for="male">Male</label>
-                            </div>
-                            <div class="form-check col-4">
-                                <input class="form-check-input" value="0" type="radio" name="gender" id="female" value="female">
-                                <label class="form-check-label" for="female">Female</label>
-                            </div> --}}
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <label for="address">Địa chỉ</label>
-                            <input type="address" value="{{ $dataUser->address }}" class="form-control" id="address" name="address" required>
+                            <input type="tel" value="{{ $dataPatient->phone }}" class="form-control" id="phone" name="phone" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="date">Ngày hẹn:</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
+                            <label for="address">Địa chỉ</label>
+                            <input type="address" value="{{ $dataPatient->address }}" class="form-control" id="address" name="address" required>
+                        </div>
+
+                        <div class="row mt-3">
+                            <label for="phone">Giới tính:</label>
+                            <div class="form-group">
+                                <select class="form-control" id="gender">
+                                    {{-- <option>------Chọn giới tính------</option> --}}
+                                    <option value="{{'Nam' ? 1 : 0}}">{{ $dataPatient->sex = 1 ? 'Nam' : 'Nữ' }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Ngày Hẹn</label>
+                            <select class="form-control" id="date_time">
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="time">Thời gian hẹn:</label>
-                            <input type="time" class="form-control" id="time" name="time" required>
+                            <select class="form-control" id="time">
+                                <option value="0">Sáng</option>
+                                <option value="1">Chiều</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -116,9 +114,7 @@
 </section>
 @endsection
 
-
 <script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
-
 <script>
 
     let config = {
@@ -126,8 +122,38 @@
                 home: "{{ asset("")}}",
             }
     };
+
+
+    $( document ).ready(function() {
+        departmentDoctor();
+    });
+
+    function departmentDoctor() {
+        let id = $('#doctor').val();
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+ today.getDate();
+
+        $.ajax({
+            url: `departmentDoctor/${id}`,
+            method: "GET",
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                let html = '';
+                let time = '';
+                data.forEach(function(value,index){
+                    html = `${html}<option value="${value.department_id}">${value.department_name}</option>`
+                    time = `${time}<option value="${value.onAll_day}">${value.onAll_day}</option>`
+                })
+                $('#department').html(html);
+                $('#date_time').html(time);
+            }
+        })
+    }
     function addBookApoinment(){
-        console.log( $('#gender').val());
+        loadPage(true)
         let department = $('#department').val();
         let doctor = $('#doctor').val();
         let name = $('#name').val();
@@ -135,11 +161,10 @@
         let phone = $('#phone').val();
         let gender = $('#gender').val();
         let address = $('#address').val();
-        let appointment_date = $('#date').val();
+        let appointment_date = $('#date_time').val();
         let appointment_time = $('#time').val();
         let note = $('#note').val();
         let status = 0;
-
         $.ajax({
             type: 'POST',
             url: 'addBookApointment',
@@ -169,7 +194,6 @@
                 alert("Error")
             }
         })
+        loadPage(false)
     }
-
-
 </script>

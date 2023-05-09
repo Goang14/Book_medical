@@ -13,48 +13,18 @@
               </div>
           </div>
 
-        {{-- <div class="col-12 text-center  mb-5">
-              <div class="btn-group btn-group-toggle " data-toggle="buttons">
-                <label class="btn active ">
-                  <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Department
-                </label>
-                <label class="btn ">
-                  <input type="radio" name="shuffle-filter" value="cat1" />Cardiology
-                </label>
-                <label class="btn">
-                  <input type="radio" name="shuffle-filter" value="cat2" />Dental
-                </label>
-                <label class="btn">
-                  <input type="radio" name="shuffle-filter" value="cat3" />Neurology
-                </label>
-                <label class="btn">
-                  <input type="radio" name="shuffle-filter" value="cat4" />Medicine
-                </label>
-                 <label class="btn">
-                  <input type="radio" name="shuffle-filter" value="cat5" />Pediatric
-                </label>
-                <label class="btn">
-                  <input type="radio" name="shuffle-filter" value="cat6" />Traumatology
-                </label>
-              </div>
-        </div> --}}
-
-      <div class="row shuffle-wrapper portfolio-gallery">
-            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
-                @foreach ($doctor as $value )
-                    <div class="position-relative doctor-inner-box">
-                        <div class="doctor-profile">
-                            <div class="doctor-img p-3">
-                                <img src="{{ asset('storage/avatar/' . $value->image) }}" alt="doctor-image" class="img-fluid w-100">
-                            </div>
-                        </div>
+        <div class="row">
+            @foreach ($doctor as $value)
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-block mb-5">
+                        <img src="{{ asset('storage/avatar/' . $value->image) }}" alt="doctor-image" style="height: 416px" class="img-fluid w-100">
                         <div class="content mt-3">
                             <h4 class="mb-0">{{ $value->name }}</h4>
                             <p>{{ $value->department_name }}</p>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
     </div>
   </section>
@@ -65,8 +35,8 @@
               <div class="col-lg-7">
                   <div class="cta-content">
                       <div class="divider mb-4"></div>
-                      <h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
-                      <a href="appoinment.html" class="btn btn-main-2 btn-round-full">Get appoinment<i class="icofont-simple-right  ml-2"></i></a>
+                      <h2 class="mb-5 text-lg">Chúng tôi hân hạnh cung cấp cho bạn <span class="title-color">cơ hội để có sức khỏe</span></h2>
+                      <a href="appoinment.html" class="btn btn-main-2 btn-round-full">Đặt lịch<i class="icofont-simple-right  ml-2"></i></a>
                   </div>
               </div>
           </div>

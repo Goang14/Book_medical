@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('sex')->nullable();
             $table->string('address')->nullable();
             $table->date('appointment_date')->nullable();
-            $table->time('appointment_time')->nullable();
+            $table->integer('appointment_time')->nullable();
             $table->integer('status');
             $table->string('note')->nullable();
             $table->timestamps();
