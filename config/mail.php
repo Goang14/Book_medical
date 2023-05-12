@@ -32,7 +32,6 @@ return [
     |            "postmark", "log", "array", "failover"
     |
     */
-
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
@@ -51,16 +50,10 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
         ],
 
         'postmark' => [
             'transport' => 'postmark',
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
         ],
 
         'sendmail' => [
@@ -117,7 +110,7 @@ return [
         'theme' => 'default',
 
         'paths' => [
-            resource_path('views/vendor/mail'),
+            resource_path('views/email'),
         ],
     ],
 

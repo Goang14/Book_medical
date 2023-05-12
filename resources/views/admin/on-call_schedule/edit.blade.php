@@ -93,7 +93,7 @@
             success: function(data) {
                 if (data.status == 200) {
                     alert("Bạn đã thêm thành công");
-                    window.location.href  = "on_call_schedule";
+                    window.location.href  = "admin/on_call_schedule";
                 }
             },
         })

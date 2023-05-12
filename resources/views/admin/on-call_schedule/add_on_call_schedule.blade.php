@@ -108,7 +108,7 @@
 
         $.ajax({
             type: 'POST',
-            url: `../add_on_call_schedule`,
+            url: `../admin/create-oncall-schedule`,
             data:formData,
             processData: false,
             contentType: false,
@@ -118,7 +118,7 @@
             success: function(data) {
                 if (data.status == 200) {
                     alert("Bạn đã update thành công");
-                    window.location.href  = "admin/on_call_schedule";
+                    window.location.href  = "../on_call_schedule";
                 }
             },
         })
@@ -139,7 +139,7 @@
 
         $.ajax({
             type: 'POST',
-            url: `../update-oncall-schedule/${id}`,
+            url: `../admin/update-oncall-schedule/${id}`,
             data:formData,
             processData: false,
             contentType: false,

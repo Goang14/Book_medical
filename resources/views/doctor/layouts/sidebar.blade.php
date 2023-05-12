@@ -19,6 +19,10 @@
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
                     Quản lí bệnh nhân
                 </a>
+                <a class="nav-link" href="{{ url('doctor/patient_examined') }}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
+                    Danh sách đã khám
+                </a>
             </div>
         </div>
     </nav>

@@ -20,14 +20,12 @@
             <tbody>
                 <tr>
                     <td>{{ ++$key }}</td>
-                    <td>{{ $value->appointment_date }}</td>
+                    <td>{{ date('d-m-Y', strtotime($value->appointment_date))}}</td>
                     @if($value->appointment_time == 0)
                         <td>Buổi sáng</td>
                     @elseif($value->appointment_time == 1)
                         <td>Buổi Chiểu</td>
                     @endif
-
-                    <td>{{ $value->appointment_time }}</td>
                     <td>{{ $value->name_patient }}</td>
                     <td>{{ $value->phone }}</td>
                     <td>{{ $value->email }}</td>
@@ -71,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label for="time">Giờ Khám</label>
-                        <input type="time" class="form-control" id="time" name="time" required disabled >
+                        <input type="text" class="form-control" id="time" name="time" required disabled >
                     </div>
                     <div class="form-group">
                         <label for="phone">Điện Thoại</label>
@@ -97,21 +95,25 @@
 <script>
     $(document).ready(function() {
         $('#exampleModal').on('show.bs.modal', function(e) {
-
             let id = $(e.relatedTarget).data('id');
             let name = $(e.relatedTarget).data('name');
             let date_time = $(e.relatedTarget).data('date_time');
             let time = $(e.relatedTarget).data('time');
             let phone = $(e.relatedTarget).data('phone');
             let email = $(e.relatedTarget).data('email');
-            console.log(id);
 
+            if(time==0){
+                session ="Buổi sáng"
+            }if(time==1){
+                session ="Buổi chiểu"
+            }
             $('#id').val(id);
             $('#name').val(name);
             $('#phone').val(phone);
             $('#email').val(email);
             $('#date_time').val(date_time);
-            $('#time').val(time);
+            $('#time').val(session);
+
         });
     })
 

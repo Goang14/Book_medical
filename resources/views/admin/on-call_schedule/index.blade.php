@@ -35,7 +35,7 @@
                                     <td>Chiều</td>
                                 @endif
                                 <td><a href="{{ url('admin/getDataUpdate/' .$value->id) }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                                <td><a href="" class="delete-department" data-id="{{ $value->id }}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
+                                <td><a href="" class="delete-oncall" data-id="{{ $value->id }}"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -43,3 +43,27 @@
         </div>
   </section>
 @endsection
+<script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
+<script>
+ $(document).ready(function() {
+        $('.delete-oncall').click(function() {
+            var oncallID = $(this).data('id');
+            if (confirm('Bạn có muốn chắc chắn xóa không?')) {
+                $.ajax({
+                    url: `deleteOncall/${oncallID}`,
+                    type: 'DELETE',
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert('deleted successfully');
+                        } else {
+                            alert('Error deleting room');
+                        }
+                    },
+                });
+            }
+        });
+    });
+</script>

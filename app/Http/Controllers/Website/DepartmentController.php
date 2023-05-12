@@ -52,7 +52,7 @@ class DepartmentController extends Controller
         $listData = Department::join('doctor', 'doctor.department_id', 'department.id')
             ->join('users', 'doctor.user_id', 'users.id')
             ->join('degree', 'doctor.degree_id', 'degree.id')
-            ->select('department.department_name', 'doctor.department_id')
+            ->select('degree.name as name_degree', 'users.*','department.department_name', 'doctor.id as id_doctor','doctor.image', 'doctor.department_id')
             ->where('doctor.department_id', $id)
             ->get();
         if (collect($searchResults)->isEmpty()) {

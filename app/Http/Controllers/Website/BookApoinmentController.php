@@ -8,7 +8,7 @@ use App\Models\Department;
 use App\Models\Doctor;
 use App\Models\User;
 use App\Services\UserService;
-use App\Services\BookApoinmentService;
+use App\Services\BookAppointmentService;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -17,12 +17,12 @@ class BookApoinmentController extends Controller
 {
 
     public $userService;
-    public $bookApointmentService;
+    public $bookAppointmentService;
     public function __construct(
-        UserService $userService, BookApoinmentService $bookApointmentService
+        UserService $userService, BookAppointmentService $bookAppointmentService
     ) {
         $this->userService = $userService;
-        $this->bookApointmentService = $bookApointmentService;
+        $this->bookAppointmentService = $bookAppointmentService;
     }
 
     public function index(){
@@ -34,9 +34,9 @@ class BookApoinmentController extends Controller
         return view('website.book_apoinment', compact('dataDepartment', 'dataDoctor', 'dataUser', 'dataPatient'));
     }
 
-    public function addBookApointment(Request $request){
-        $addBookApointment = $this->bookApointmentService->createApoinment($request);
-        return response()->json(['addBookApointment' => $addBookApointment, 'status' => 200]);
+    public function addBookAppointment(Request $request){
+        $addBookAppointment = $this->bookAppointmentService->createApoinment($request);
+        return response()->json(['addBookAppointment' => $addBookAppointment, 'status' => 200]);
     }
 
     public function departmentDoctor($id){

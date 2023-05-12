@@ -52,4 +52,6 @@ Route::group(['prefix'=>'/admin', 'middleware' => 'author.admin'], function () {
 
     Route::get('/getDataUpdate/{id}', [App\Http\Controllers\Admin\OncallScheduleController::class, 'getDataUpdate'])->name('admin.getDataUpdate');
     Route::post('/update-oncall-schedule/{id}', [App\Http\Controllers\Admin\OncallScheduleController::class, 'updateOncall'])->name('admin.update');
+    Route::delete('/deleteOncall/{id}', [App\Http\Controllers\Admin\OncallScheduleController::class, 'deleteOncall'])->name('admin.deleteOncall');
+
 });
