@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\OncallScheduleService;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+
 
 
 class OncallScheduleController extends Controller
@@ -20,6 +24,7 @@ class OncallScheduleController extends Controller
         $dayOnCall = $dataOncall[0];
         $oncall = $dataOncall[1];
         $c = $dataOncall[2];
-        return view('website.oncallSchedule', compact('dayOnCall','oncall', 'c'));
+        $dataPatient = User::where('id', Auth::user()->id)->first();
+        return view('website.oncallSchedule', compact('dayOnCall','oncall', 'c', 'dataPatient'));
     }
 }

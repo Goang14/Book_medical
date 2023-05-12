@@ -65,4 +65,15 @@ class OncallScheduleService{
             throw $e;
         }
     }
+
+    public function deleteOncall($id){
+        DB::beginTransaction();
+        try {
+            DB::table('call_schedule')->where('id', $id)->delete();
+            DB::commit();
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
+    }
 }

@@ -24,7 +24,7 @@ Route::group(['middleware' => 'author.user'], function() {
     Route::get('/booking_schedule', [App\Http\Controllers\Website\BookingScheduleController::class, 'index'])->name('booking_schedule');
     Route::get('/information', [App\Http\Controllers\UsersController::class, 'index'])->name('information');
     Route::post('/update_information', [App\Http\Controllers\UsersController::class, 'updateInformation'])->name('update_information');
-    Route::post('/addBookApointment', [App\Http\Controllers\Website\BookApoinmentController::class, 'addBookApointment'])->name('addBookApointment');
+    Route::post('/addBookApointment', [App\Http\Controllers\Website\BookApoinmentController::class, 'addBookAppointment'])->name('addBookApointment');
     Route::post('/delete/{id}', [App\Http\Controllers\Website\BookingScheduleController::class, 'delete'])->name('delete');
     Route::get('/change-password', [App\Http\Controllers\UsersController::class, 'showChangePasswordForm'])->name('user.change-password');
     Route::post('/change-password', [App\Http\Controllers\UsersController::class,'changePassword'])->name('user.change-password');

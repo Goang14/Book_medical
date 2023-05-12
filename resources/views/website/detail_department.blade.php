@@ -12,11 +12,10 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="value" value="{{ $listData->first()->department_id }}">
-
         <h1>Tìm kiếm thông tin bác sĩ</h1>
         <form action="{{ route('searchDoctor') }}" method="GET">
             <div class="d-flex">
+                <input type="hidden" name="value" value="{{ $listData->first()->department_id }}">
                 <input class="col-4 form-control border-1" type="text" name="query" placeholder="Search...">
                 <button class="btn btn-dark ms-3" type="submit">Tìm kiếm</button>
             </div>

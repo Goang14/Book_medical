@@ -19,6 +19,6 @@ Route::group(['prefix'=>'/doctor', 'middleware' => 'author.doctor'], function ()
 
     Route::get('/manager_patient', [App\Http\Controllers\Doctor\PatientController::class, 'index'])->name('doctor.manager_patient');
     Route::post('/update_patient', [App\Http\Controllers\Doctor\PatientController::class, 'updatePatient'])->name('doctor.update_patient');
-
+    Route::get('/patient_examined', [App\Http\Controllers\Doctor\PatientController::class, 'getPatient'])->name('doctor.patient_examined');
 
 });

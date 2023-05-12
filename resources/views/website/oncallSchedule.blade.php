@@ -78,22 +78,22 @@
 
                         <div class="form-group">
                             <label for="name">Họ tên:</label>
-                            <input type="text" value="" class="form-control" id="name" name="name" required>
+                            <input type="text" value="{{ $dataPatient->name }}" class="form-control" id="name" name="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" value="" class="form-control" id="email" name="email" required>
+                            <input type="email" value="{{ $dataPatient->email }}" class="form-control" id="email" name="email" required>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Số điện thoại:</label>
-                            <input type="tel" value="" class="form-control" id="phone" name="phone" required>
+                            <input type="tel" value="{{ $dataPatient->phone }}" class="form-control" id="phone" name="phone" required>
                         </div>
 
                         <div class="form-group">
                             <label for="address">Địa chỉ</label>
-                            <input type="address" value="" class="form-control" id="address" name="address" required>
+                            <input type="address" value="{{ $dataPatient->address }}" class="form-control" id="address" name="address" required>
                         </div>
 
                         <div class="col-12">
@@ -131,7 +131,7 @@
 </div>
 @endsection
 <script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#exampleModal').on('show.bs.modal', function(e) {
@@ -160,13 +160,20 @@
         let phone = $('#phone').val();
         let gender = $('#gender').val();
         let address = $('#address').val();
-        let appointment_date = $('#date_time').val();
+        let appointment_date = moment($('#date_time').val(), 'YYYY-MM-DD').format('DD/MM/YYYY');
         let appointment_time = $('#time').val();
+        let session;
+        if(appointment_time == 'Buổi sáng'){
+            session = 0;
+        }else if(appointment_time == 'Buổi sáng'){
+            session = 1;
+        }
+        console.log(appointment_time);
         let note = $('#note').val();
         let status = 0;
         $.ajax({
             type: 'POST',
-            url: '../addBookApointment',
+            url: 'http://127.0.0.1:8000/addBookApointment',
             data: {
                 department: department,
                 doctor: doctor,
@@ -176,7 +183,7 @@
                 gender: gender,
                 address: address,
                 appointment_date: appointment_date,
-                appointment_time: appointment_time,
+                appointment_time: session,
                 note: note,
                 status:status,
             },

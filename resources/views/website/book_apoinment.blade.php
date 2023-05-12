@@ -167,7 +167,7 @@
         let status = 0;
         $.ajax({
             type: 'POST',
-            url: 'addBookApointment',
+            url: 'http://127.0.0.1:8000/addBookApointment',
             data: {
                 department: department,
                 doctor: doctor,
@@ -186,7 +186,7 @@
             },
             success: function(data) {
                 if (data.status == 200) {
-                    alert("Bạn đã thêm thành công.");
+                    alert("Bạn đã đặt lịch thành công.");
                     window.location.href  = config.routes.home;
                 }
             },

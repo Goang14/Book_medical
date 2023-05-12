@@ -26,7 +26,6 @@ class OncallScheduleController extends Controller
         ->join('department', 'department.id', 'call_schedule.department_id')
         ->select('users.name', 'call_schedule.*')
         ->get();
-        // dd($dataOncallSchedule);
         return view('admin.on-call_schedule.index', compact('dataOncallSchedule'));
     }
 
@@ -36,14 +35,14 @@ class OncallScheduleController extends Controller
     }
 
     public function addOncallSchedule(Request $request){
-        $createOncallShedule = OncallSchedule::create([
+        $createOncallSchedule = OncallSchedule::create([
             'session' => $request->session,
             'onAll_day' => $request->on_call_day,
             'user_id' => $request->doctor,
             'department_id' => $request->department,
         ]);
         return response()->json([
-            'userDoctor' => $createOncallShedule,
+            'userDoctor' => $createOncallSchedule,
             'status' => 200,
         ]);
     }
@@ -76,5 +75,10 @@ class OncallScheduleController extends Controller
             'updateOncallShedule' => $updateOncallShedule,
             'status' => 200,
         ]);
+    }
+
+    public function deleteOncall($id){
+        $deleteOncall = $this->oncallScheduleService->deleteOncall($id);
+        return response()->json(['deleteOncall' => $deleteOncall, 'status' => 200, 'success' => true]);
     }
 }
